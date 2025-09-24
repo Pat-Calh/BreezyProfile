@@ -43,9 +43,8 @@ body {
 }
 
 /* Wave separator */
-.wave-separator { margin-top: -20px; }
+.wave-separator { margin: -40px 0; position: relative; z-index: 0; }
 .wave-separator svg { width: 100%; height: 120px; display: block; }
-.wave-separator + .section { padding-top: 24px; }
 
 /* Header/Nav */
 .site-header {
@@ -56,9 +55,26 @@ body {
   border-bottom: 1px solid var(--border);
   z-index: 50;
 }
-.nav { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 14px 0; }
+.nav { position: relative; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 14px 0; }
 .logo { font-weight: 800; color: var(--text); text-decoration: none; letter-spacing: 0.5px; }
-.nav-toggle { display: none; background: none; color: var(--text); border: 1px solid var(--border); border-radius: 8px; padding: 6px 10px; }
+.nav-toggle { display: none; background: none; color: var(--text); border: 1px solid var(--border); border-radius: 10px; padding: 10px 12px; font-size: 24px; line-height: 1; min-width: 44px; min-height: 44px; }
+.nav-toggle .hamburger,
+.nav-toggle .hamburger::before,
+.nav-toggle .hamburger::after {
+  content: "";
+  display: block;
+  width: 22px; height: 2px;
+  background: currentColor;
+  border-radius: 2px;
+  transition: transform .25s ease, opacity .25s ease;
+}
+.nav-toggle .hamburger { position: relative; }
+.nav-toggle .hamburger::before { position: absolute; top: -6px; left: 0; }
+.nav-toggle .hamburger::after { position: absolute; top: 6px; left: 0; }
+/* Animate to X when active */
+.nav-toggle.active .hamburger { transform: rotate(45deg); }
+.nav-toggle.active .hamburger::before { transform: translateY(6px) rotate(90deg); }
+.nav-toggle.active .hamburger::after { transform: translateY(-6px) rotate(90deg); opacity: 0; }
 .nav-links { display: flex; align-items: center; gap: 16px; list-style: none; margin: 0; padding: 0; }
 .nav-links a { color: var(--text); text-decoration: none; padding: 8px 12px; border-radius: 10px; background: rgba(255,255,255,0.05); }
 .nav-links a:hover { color: var(--text); background: rgba(122,162,255,0.18); }
@@ -72,9 +88,9 @@ body {
 .nav-links a.icon-link:hover { background: transparent; }
 
 @media (max-width: 760px) {
-  .nav-toggle { display: inline-block; }
-  .nav-links { display: none; position: absolute; right: 4%; top: 56px; flex-direction: column; background: var(--card); border: 1px solid var(--border); padding: 10px; border-radius: 12px; }
-  .nav-links a { background: transparent; padding: 10px 12px; }
+  .nav-toggle { display: inline-flex; align-items: center; justify-content: center; }
+  .nav-links { display: none; position: absolute; right: 4%; top: 64px; flex-direction: column; background: rgba(18,22,27,0.92); backdrop-filter: blur(8px) saturate(130%); border: 1px solid var(--border); padding: 12px; border-radius: 14px; width: min(320px, 92vw); z-index: 60; box-shadow: 0 10px 30px rgba(0,0,0,0.35); }
+  .nav-links a { background: transparent; padding: 12px 14px; font-size: 16px; }
   .nav-links.open { display: flex; }
   .socials-inline { display: flex; }
 }
@@ -150,6 +166,36 @@ body {
 /* Scroll reveal animations */
 .reveal { opacity: 0; transform: translateY(14px); transition: opacity .6s ease, transform .6s ease; }
 .reveal.show { opacity: 1; transform: translateY(0); }
+
+/* Social cards (Links section) */
+.social-cards {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 12px;
+}
+.social-cards .card {
+  grid-column: span 4;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  text-decoration: none;
+  color: var(--text);
+  border-radius: 14px;
+  position: relative;
+  background: linear-gradient(var(--card), var(--card)) padding-box,
+              linear-gradient(135deg, rgba(122,162,255,0.6), rgba(108,240,194,0.6)) border-box;
+  border: 1px solid transparent;
+  transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+}
+.social-cards .card:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(0,0,0,0.35); }
+.social-cards .card:focus-visible { outline: none; box-shadow: 0 0 0 3px rgba(122,162,255,0.45), 0 0 0 6px rgba(11,13,16,0.55); }
+.card-icon { width: 28px; height: 28px; color: var(--text); opacity: 0.95; display: inline-flex; align-items: center; justify-content: center; }
+.card-icon svg { width: 100%; height: 100%; display: block; }
+.card-label { font-weight: 600; letter-spacing: .2px; }
+
+@media (max-width: 920px) { .social-cards .card { grid-column: span 6; } }
+@media (max-width: 560px) { .social-cards .card { grid-column: span 12; } }
 
 /* Music */
 .music-switch { display: flex; gap: 10px; margin-bottom: 16px; }
