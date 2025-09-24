@@ -98,10 +98,12 @@ internalLinks.forEach(link => {
 (() => {
   const orbs = document.querySelector('.bg-orbs');
   if (!orbs) return;
+  const isMobile = window.matchMedia('(max-width: 760px)').matches;
+  const factor = isMobile ? -0.01 : -0.03;
   const onScroll = () => {
     const y = window.scrollY || document.documentElement.scrollTop;
-    // Very gentle translate effect
-    orbs.style.transform = `translate3d(0, ${y * -0.03}px, 0)`;
+    // Very gentle translate effect (reduced on mobile)
+    orbs.style.transform = `translate3d(0, ${y * factor}px, 0)`;
   };
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
@@ -111,6 +113,7 @@ internalLinks.forEach(link => {
 (() => {
   const waves = document.querySelectorAll('.wave-separator svg');
   if (!waves.length) return;
+  const isMobile = window.matchMedia('(max-width: 760px)').matches;
 
   // A few nice wave variants (two layered paths each). Keep heights compatible with 120px viewport height.
   const variants = [
@@ -140,11 +143,18 @@ internalLinks.forEach(link => {
     ]
   ];
 
-  // Assign random shape, flip, opacity, height, and parallax factor
-  waves.forEach((svg) => {
+  // Prepare a shuffled list of variant indexes to reduce repeats
+  const idxs = [...variants.keys()];
+  for (let i = idxs.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [idxs[i], idxs[j]] = [idxs[j], idxs[i]];
+  }
+
+  // Assign random shape (unique where possible), flip, opacity, height, and parallax factor
+  waves.forEach((svg, i) => {
     const paths = svg.querySelectorAll('path');
     if (paths.length < 2) return;
-    const variant = variants[Math.floor(Math.random() * variants.length)];
+    const variant = variants[idxs[i % idxs.length]];
     paths[0].setAttribute('d', variant[0]);
     paths[1].setAttribute('d', variant[1]);
 
@@ -165,9 +175,12 @@ internalLinks.forEach(link => {
     // Randomize height a bit (110-150px)
     const h = Math.round(110 + Math.random() * 40);
     svg.style.height = `${h}px`;
-    // Store a parallax factor for vertical scroll (0.02 - 0.08)
-    const factor = (0.02 + Math.random() * 0.06).toFixed(3);
-    svg.dataset.parallaxFactor = factor;
+    // Store a parallax factor for vertical scroll
+    // Mobile: much smaller (0.005 - 0.02), Desktop: (0.02 - 0.08)
+    const fMin = isMobile ? 0.005 : 0.02;
+    const fMax = isMobile ? 0.02 : 0.08;
+    const pf = (fMin + Math.random() * (fMax - fMin)).toFixed(3);
+    svg.dataset.parallaxFactor = pf;
   });
 
   // Apply vertical parallax on scroll (combine flip + translateY)
