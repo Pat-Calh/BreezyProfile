@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Breezy — Musician • Photographer</title>
+  <meta name="description" content="Portfolio of music and photography with links to socials, latest releases, and photo gallery." />
+  <meta property="og:title" content="Breezy — Musician • Photographer" />
+  <meta property="og:description" content="Listen to my latest tracks and explore my photo work. Connect with me on socials." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="assets/img/og-image.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav">
+      <a href="#home" class="logo">Breezy</a>
+      <button class="nav-toggle" aria-label="Open menu">☰</button>
+      <ul class="nav-links">
+        <li><a href="#music">Music</a></li>
+        <li><a href="#photos">Photos</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li class="socials-inline">
+          <a href="https://www.instagram.com/breezy_fops/" target="_blank" rel="noopener" aria-label="Instagram" class="icon-link"> 
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7m10 2a1 1 0 1 1 0 2 1 1 0 0 1 0-2M12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10m0 2a3 3 0 1 0 .002 6.002A3 3 0 0 0 12 9z"/></svg>
+          </a>
+          <a href="https://www.tiktok.com/@ballmainbreezy" target="_blank" rel="noopener" aria-label="TikTok" class="icon-link">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M21 8.5c-2 0-3.9-.6-5.5-1.8V15a5.5 5.5 0 1 1-5.5-5.5c.3 0 .6 0 .9.1V12a3.5 3.5 0 1 0 3.5 3.5V2h2.2c.2 1 .7 1.9 1.4 2.7A7.8 7.8 0 0 0 21 6.3V8.5z"/></svg>
+          </a>
+          <a href="https://x.com/BreezyFops" target="_blank" rel="noopener" aria-label="X/Twitter" class="icon-link">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20.2 2H16l-4 6.2L8.4 2H2l6.3 10.7L2.3 22h4.2l4.2-6.5L15.8 22H22l-6.5-10.8L22 2z"/></svg>
+          </a>
+          <a href="https://open.spotify.com/user/ithink2much?si=xlQ22Sf2QcSD4hKRycCf6w" target="_blank" rel="noopener" aria-label="Spotify" class="icon-link">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 1.5C6.2 1.5 1.5 6.2 1.5 12S6.2 22.5 12 22.5 22.5 17.8 22.5 12 17.8 1.5 12 1.5zm4.8 15.3a.8.8 0 0 1-1.1.3c-3-1.8-6.7-2.2-11-1.2a.8.8 0 1 1-.4-1.6c4.8-1.1 8.9-.7 12.4 1.4.4.2.5.7.3 1.1zm1.5-3.1a1 1 0 0 1-1.4.4c-3.4-2-8.6-2.6-12.6-1.4a1 1 0 1 1-.5-1.9c4.6-1.2 10.4-.5 14.4 1.8.5.3.7 1 .4 1.5zm.2-3.3c-3.9-2.3-10.5-2.6-14.3-1.4a1.2 1.2 0 0 1-.7-2.2c4.4-1.3 11.6-.9 16 1.7a1.2 1.2 0 0 1-1.3 2z"/></svg>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="home">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-inner">
+        <div class="avatar-wrap" aria-hidden="true">
+          <img src="assets/img/breezypfp.jpg" alt="Portrait of Breezy" class="avatar" width="144" height="144" />
+        </div>
+        <h1 id="hero-title">Breezy</h1>
+        <p class="tagline">Musician • Photographer</p>
+        <div class="hero-ctas">
+          <a class="btn primary" href="#music">Listen</a>
+          <a class="btn outline" href="#photos">View Photos</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="music" class="section">
+      <div class="container">
+        <h2>Music</h2>
+        <p class="section-intro">Stream my latest tracks and releases.</p>
+        <div class="music-switch">
+          <button class="switch-btn" data-target="#spotify-embed">Spotify</button>
+          <button class="switch-btn active" data-target="#soundcloud-embed">SoundCloud</button>
+        </div>
+        <div class="embeds">
+          <div id="spotify-embed" class="embed" role="region" aria-label="Spotify playlists">
+            <!-- Featured playlist embed -->
+            <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/2Hsrl7uqDTCj9d01i34vxo?utm_source=generator" width="100%" height="380" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+            <!-- Second playlist embed -->
+            <iframe style="border-radius:12px; margin-top:12px" src="https://open.spotify.com/embed/playlist/5Jn1cw9H27lqZoCLk8VXRu?utm_source=generator" width="100%" height="380" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+            <!-- Third playlist embed -->
+            <iframe style="border-radius:12px; margin-top:12px" src="https://open.spotify.com/embed/playlist/0fzTRK0mMyarHNpK4ieM7e?utm_source=generator" width="100%" height="380" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+            <!-- Optional: link to all playlists -->
+            <div style="display:flex;justify-content:center;padding:12px 0 0">
+              <a class="btn outline" href="https://open.spotify.com/user/ithink2much?si=xlQ22Sf2QcSD4hKRycCf6w" target="_blank" rel="noopener">See all playlists on Spotify</a>
+            </div>
+          </div>
+          <div id="soundcloud-embed" class="embed shown" role="region" aria-label="SoundCloud player">
+            <!-- Replace with your track/playlist embed -->
+            <iframe width="100%" height="380" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/brzyyy&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&visual=true"></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="photos" class="section">
+      <div class="container">
+        <h2>Photography</h2>
+        <p class="section-intro">A selection from my recent shoots. Click to view larger.</p>
+        <!-- Instagram feed via SnapWidget -->
+        <div class="instagram-embed">
+          <!-- SnapWidget -->
+          <script src="https://snapwidget.com/js/snapwidget.js"></script>
+          <iframe src="https://snapwidget.com/embed/1108593" class="snapwidget-widget" allowtransparency="true" frameborder="0" scrolling="no" style="border:none; overflow:hidden;  width:100%; " title="Posts from Instagram"></iframe>
+        </div>
+        <div style="display:flex; justify-content:center; margin-top:16px;">
+          <a class="btn outline" href="https://www.instagram.com/breezy_fops/" target="_blank" rel="noopener">View more on Instagram</a>
+        </div>
+      </div>
+
+      
+    </section>
+
+    <section id="contact" class="section">
+      <div class="container">
+        <h2>Contact</h2>
+        <p>For bookings, collaborations, or prints, email me at
+          <a href="mailto:breezyfops@gmail.com">breezyfops@gmail.com</a>
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© <span id="year"></span> Breezy. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
