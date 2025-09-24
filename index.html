@@ -16,6 +16,8 @@
   <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
 <body>
+  <!-- Animated background orbs -->
+  <div class="bg-orbs" aria-hidden="true"></div>
   <header class="site-header">
     <nav class="nav">
       <a href="#home" class="logo">Breezy</a>
@@ -57,15 +59,23 @@
       </div>
     </section>
 
+    <!-- Wavy separator (Hero -> Music) -->
+    <div class="wave-separator" aria-hidden="true">
+      <svg viewBox="0 0 1440 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,64 C240,112 360,0 720,48 C1080,96 1200,32 1440,80 L1440,120 L0,120 Z" fill="rgba(122,162,255,0.10)"/>
+        <path d="M0,72 C240,120 360,16 720,64 C1080,112 1200,48 1440,96 L1440,120 L0,120 Z" fill="rgba(108,240,194,0.10)"/>
+      </svg>
+    </div>
+
     <section id="music" class="section">
       <div class="container">
-        <h2>Music</h2>
-        <p class="section-intro">Stream my latest tracks and releases.</p>
+        <h2 class="reveal">Music</h2>
+        <p class="section-intro reveal">Stream my latest tracks and releases.</p>
         <div class="music-switch">
           <button class="switch-btn" data-target="#spotify-embed">Spotify</button>
           <button class="switch-btn active" data-target="#soundcloud-embed">SoundCloud</button>
         </div>
-        <div class="embeds">
+        <div class="embeds reveal">
           <div id="spotify-embed" class="embed" role="region" aria-label="Spotify playlists">
             <!-- Featured playlist embed -->
             <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/2Hsrl7uqDTCj9d01i34vxo?utm_source=generator" width="100%" height="380" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
@@ -86,12 +96,20 @@
       </div>
     </section>
 
+    <!-- Wavy separator (Music -> Photos) -->
+    <div class="wave-separator" aria-hidden="true">
+      <svg viewBox="0 0 1440 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,64 C240,112 360,0 720,48 C1080,96 1200,32 1440,80 L1440,120 L0,120 Z" fill="rgba(122,162,255,0.10)"/>
+        <path d="M0,72 C240,120 360,16 720,64 C1080,112 1200,48 1440,96 L1440,120 L0,120 Z" fill="rgba(108,240,194,0.10)"/>
+      </svg>
+    </div>
+
     <section id="photos" class="section">
       <div class="container">
-        <h2>Photography</h2>
-        <p class="section-intro">A selection from my recent shoots. Click to view larger.</p>
+        <h2 class="reveal">Photography</h2>
+        <p class="section-intro reveal">A selection from my recent shoots. Click to view larger.</p>
         <!-- Instagram feed via SnapWidget -->
-        <div class="instagram-embed">
+        <div class="instagram-embed reveal">
           <!-- SnapWidget -->
           <script src="https://snapwidget.com/js/snapwidget.js"></script>
           <iframe src="https://snapwidget.com/embed/1108593" class="snapwidget-widget" allowtransparency="true" frameborder="0" scrolling="no" style="border:none; overflow:hidden;  width:100%; " title="Posts from Instagram"></iframe>
@@ -106,8 +124,8 @@
 
     <section id="contact" class="section">
       <div class="container">
-        <h2>Contact</h2>
-        <p>For bookings, collaborations, or prints, email me at
+        <h2 class="reveal">Contact</h2>
+        <p class="reveal">For bookings, collaborations, or prints, email me at
           <a href="mailto:breezyfops@gmail.com">breezyfops@gmail.com</a>
         </p>
       </div>

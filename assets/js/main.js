@@ -70,3 +70,35 @@ internalLinks.forEach(link => {
     }
   });
 });
+
+// Scroll reveal using IntersectionObserver
+(() => {
+  const toReveal = document.querySelectorAll('.reveal');
+  if (!('IntersectionObserver' in window) || toReveal.length === 0) {
+    // Fallback: show immediately
+    toReveal.forEach(el => el.classList.add('show'));
+    return;
+  }
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('show');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  toReveal.forEach(el => io.observe(el));
+})();
+
+// Subtle parallax for background orbs
+(() => {
+  const orbs = document.querySelector('.bg-orbs');
+  if (!orbs) return;
+  const onScroll = () => {
+    const y = window.scrollY || document.documentElement.scrollTop;
+    // Very gentle translate effect
+    orbs.style.transform = `translate3d(0, ${y * -0.03}px, 0)`;
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+})();
